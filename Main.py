@@ -5,8 +5,10 @@ def printas(name: str, text: str):
     print("[" + name.upper() + "] : " + text)
 
 
-def resultatfpc(choix: int, choix2: int) -> bool:
-    if choix == 1:
+def resultatfpc(choix: int, choix2: int) -> int:
+    if choix == choix2:
+        return 2
+    elif choix == 1:
         return choix2 == 3
     elif choix == 2:
         return choix2 == 1
@@ -59,8 +61,8 @@ printas("julien",
 # Papier Feuille Ciseau
 # CHOIX
 resultat = ""
+printas("julien", "On va s'affronter a Pierre Feuille Ciseau, choisis ton élement :")
 while not resultat:
-    printas("julien", "On va s'affronter a Pierre Feuille Ciseau, choisis ton élement :")
     choixJulien = random.randint(1, 3)
     choixUser = int(input("[1] : Pierre / [2] : Feuille / [3] : Ciseau : "))
     while choixUser < 1 or choixUser > 3:
@@ -70,8 +72,10 @@ while not resultat:
     printas("narrateur", "Alors qu'Allegorie a choisis de faire " + choixfpc(choixUser) +
             ", Julien a lui décidé de faire " + choixfpc(choixJulien))
     resultat = resultatfpc(choixUser, choixJulien)
-    if resultat:
+    if resultat == 1:
         printas("julien",
                 "Tu as gagné le droit d'avoir mon secret pour atteindre la richesse sans bouger de chez toi !")
-    else:
+    elif resultat == 0:
         printas("julien", "Tu as perdu,désolé, je te donnerais pas mon secret, essaye encore !")
+    else:
+        printas("julien", "Egalité, on recommence")
