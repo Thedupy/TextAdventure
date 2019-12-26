@@ -5,6 +5,16 @@ def printas(name: str, text: str):
     print("[" + name.upper() + "] : " + text)
 
 
+def excusebidon() -> str:
+    excuses = [
+        "J'ai eternué",
+        "T'as triché, je t'ai vue !",
+        "Ma grand-mère est mourrante"
+    ]
+
+    return excuses[random.randint(0, excuses.count(str) - 1)]
+
+
 def resultatfpc(choix: int, choix2: int) -> int:
     if choix == choix2:
         return 2
@@ -38,6 +48,12 @@ class Character:
 myChar = Character("Allegorie", 10, 100)
 myChar.status()
 
+print(excusebidon())
+print(excusebidon())
+print(excusebidon())
+print(excusebidon())
+print(excusebidon())
+
 # -----------INTRO--------
 print("----------------------------------------------------------------")
 print("Dans cette aventure, vous jouez Allegorie, un fière cowboy...")
@@ -57,6 +73,9 @@ printas(myChar.name, "J'ai fait le bon choix !")
 printas("julien",
         "Bonjour, je suis Julien, et j'ai trouvé un moyen très "
         "simple de se faire de l'argent facilement depuis chez soi !")
+
+printas("julien",
+        "Je te défie a un Pierre Feuille Ciseau, si je gagne, tu devras faire quelque chose pour moi, mais si tu g")
 
 # Papier Feuille Ciseau
 # CHOIX
@@ -79,3 +98,5 @@ while not resultat:
         printas("julien", "Tu as perdu,désolé, je te donnerais pas mon secret, essaye encore !")
     else:
         printas("julien", "Egalité, on recommence")
+
+#
