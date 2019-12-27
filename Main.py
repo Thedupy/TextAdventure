@@ -52,13 +52,15 @@ while resultat != 0:
     else:
         Utils.printas("julien", "Egalité, on recommence")
 
-    # TODO CHOIX OBJET
-    Utils.printas("narrateur", "Alors qu'Allegorie se dirige vers sa tortue Marianne, il entend une voix qui l'appelle")
-    Utils.printas("marchande",
-                  "Eh toi, avant de partir, passe donc par ma boutique, j'ai tout ce qu'il te faut pour tuner ")
-    Utils.printas("marchande", "Tu as le choix entre 3 objet, attention tu ne peux en prendre qu'un")
-    choixObjet = int(input("[1] : Pot Debridé / [2] : Carapace fibre de verre / [3] : Jantes chromées : "))
+# TODO CHOIX OBJET
+# Utils.printas("narrateur", "Alors qu'Allegorie se dirige vers sa tortue Marianne, il entend une voix qui l'appelle")
+# Utils.printas("marchande",
+#                   "Eh toi, avant de partir, passe donc par ma boutique, j'ai tout ce qu'il te faut pour tuner ")
+# Utils.printas("marchande", "Tu as le choix entre 3 objet, attention tu ne peux en prendre qu'un")
+# choixObjet = int(input("[1] : Pot Debridé / [2] : Carapace fibre de verre / [3] : Jantes chromées : "))
+
 
 # TODO MINIJEU MARIANNE
+
 
 # TODO MINIJEU RECHERCHE CACTUS JUTEUX
