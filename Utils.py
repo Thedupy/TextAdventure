@@ -1,4 +1,5 @@
 import random
+import time
 
 
 def printas(name: str, text: str):
@@ -33,3 +34,9 @@ def choixfpc(choix: int) -> str:
         return "Feuille"
     elif choix == 3:
         return "Ciseau"
+
+
+def loadingbar(nbrsecond: int, timespeed: int = 1):
+    for i in range(1, nbrsecond):
+        print('.', end='')
+        time.sleep(1 / timespeed)
