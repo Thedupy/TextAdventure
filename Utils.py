@@ -2,7 +2,7 @@ import random
 import time
 
 
-def printas(name: str, text: str):
+def printas(name: str, text: str) -> None:
     print("[" + name.upper() + "] : " + text)
 
 
@@ -36,7 +36,7 @@ def choixfpc(choix: int) -> str:
         return "Ciseau"
 
 
-def loadingbar(nbrsecond: int, timespeed: int = 1):
+def loadingbar(nbrsecond: int, timespeed: int = 1) -> None:
     for i in range(1, nbrsecond):
         print('.', end='')
         time.sleep(1 / timespeed)
