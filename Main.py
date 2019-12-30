@@ -63,8 +63,12 @@ while runSuccess != 1:
     if time.time() - runTimer >= runLength:
         runSuccess = 1
     elif time.time() - obstacleTimer >= nextObstacle:
-        obstacleTimer = time.time()
+        #Affichage Obstacle
         obstacleDirection = random.randint(1, 3)
         print("Un Obstacle !")
+        #Resolution Obstacle
+
+        #Reset timer obstacle
+
         nextObstacle = random.randint(1, 10)
 print("Sortie!")

@@ -6,6 +6,7 @@ def printas(name: str, text: str) -> None:
     print("[" + name.upper() + "] : " + text)
 
 
+#JEU DU Feuille Papier Ciseau
 def excusebidon() -> str:
     excuses = [
         "J'ai eternué",
