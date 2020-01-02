@@ -2,7 +2,6 @@ import random
 import time
 
 import Utils
-from Character import Character
 
 # myChar = Character("Allegorie", 10, 100)
 # myChar.status()
@@ -55,20 +54,95 @@ from Character import Character
 runSuccess = 0
 runTimer = time.time()
 runLength = 30
+timerNextObstacle = 0
 obstacleTimer = time.time()
-nextObstacle = random.randint(1, 3)
+dirObstacle = random.randint(1, 3)
+# variable obstacle
+obstacleSuccess = 0
+resolutionTimer = 0
+turtleLife = 3
+
+timerNextObstacle = random.randint(2, 7)
+
 while runSuccess != 1:
     time.sleep(1)
     print(".", end='')
     if time.time() - runTimer >= runLength:
         runSuccess = 1
-    elif time.time() - obstacleTimer >= nextObstacle:
-        #Affichage Obstacle
-        obstacleDirection = random.randint(1, 3)
-        print("Un Obstacle !")
-        #Resolution Obstacle
+    elif time.time() - obstacleTimer >= timerNextObstacle:
+        # Demarrage timer input
+        timerInput = time.time()
+        # Random direction
+        direction: int = random.randint(0, 2)
+        print(Utils.directionobstacle(direction))
+        # Check Input
+        userInput: str = input("Quel action ? : ")
+        userSuccess: bool = Utils.checksuccess(direction, userInput)
 
-        #Reset timer obstacle
+        if userSuccess:
+            if time.time() - timerInput <= 3:
+                print("Tu as passé l'obstacle")
+            else:
+                print("Tu as tapé l'action trop tard, tu perd 1 point de vie")
+                turtleLife -= 1
+        else:
+            print("Mauvaise action, tu te prend l'obstacle, et tu perd 1 point de vie")
+            turtleLife -= 1
+        obstacleTimer = time.time()
+        timerNextObstacle = random.randint(2, 5)
 
-        nextObstacle = random.randint(1, 10)
 print("Sortie!")
+
+# Jeu du pendu
+
+motRandom = Utils.motrandom()
+
+lettreTrouvé = []
+lettreNon = []
+tabIndex = 0
+motcaché = Utils.mot(lettreTrouvé, motRandom)
+
+win: bool = False
+
+while tabIndex < 4:
+    print("Lettre trouvé = ", end='')
+    for i in lettreTrouvé:
+        print(i + "/", end='')
+    else:
+        print("]")
+    print("Lettre fausses = ", end='')
+    for j in lettreNon:
+        print(j + "/", end='')
+    else:
+        print("]")
+
+    print(motcaché)
+
+    usrcharac = input("Rentrez une lettre : ")
+    phrase = "Juste une lettre : "
+    while len(usrcharac) > 1:
+        phrase = "Putain " + phrase
+        usrcharac = input(phrase).lower()
+
+    if usrcharac in lettreTrouvé or usrcharac in lettreNon:
+        print("Vous avez déja essayé cette lettre gros con")
+        continue
+
+    if motRandom.find(usrcharac) >= 0:
+        lettreTrouvé.append(usrcharac)
+    else:
+        print("Cette lettre n'est pas dans le mot secret")
+        lettreNon.append(usrcharac)
+        tabIndex += 1
+
+    motcaché = Utils.mot(lettreTrouvé, motRandom)
+
+    Utils.afficherpendu(tabIndex)
+    if '*' not in motcaché:
+        break
+
+if tabIndex < 4:
+    print("You Win!")
+else:
+    print("You loose !")
+print("you win ! ")
